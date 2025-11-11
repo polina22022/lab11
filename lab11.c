@@ -3,12 +3,12 @@
 int main() {
     setlocale(LC_ALL, "RUS");
     int n;
-    printf("Введите количество элементов массива: ");
+    printf("Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Г¬Г Г±Г±ГЁГўГ : ");
     scanf("%d", &n);
 
     int array[n];
 
-    printf("Введите %d целых чисел:\n", n);
+    printf("Г‚ГўГҐГ¤ГЁГІГҐ %d Г¶ГҐГ«Г»Гµ Г·ГЁГ±ГҐГ«:\n", n);
     for (int i = 0; i < n; i++) {
         scanf("%d", &array[i]);
     }
@@ -29,7 +29,45 @@ int main() {
         }
     }
 
-    printf("Количество положительных элементов до максимального: %d\n", count);
+    printf("ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЇГ®Г«Г®Г¦ГЁГІГҐГ«ГјГ­Г»Гµ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Г¤Г® Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ®: %d\n", count);
+
+    return 0;
+}
+РїРѕСЃР»Рµ Р»Р°Р±С‹
+#define _CRT_SECURE_NO_DEPRECATE
+#include <stdio.h>
+#include <locale.h>
+#define SIZE 1000
+int main() {
+    setlocale(LC_ALL, "RUS");
+    int n;
+    printf("Р’РІРµРґРёС‚Рµ  РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹С… Рё РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… С‡РёСЃРµР»: ");
+    scanf("%d", &n);
+
+    int array[SIZE];
+
+    printf("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ %d пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &array[i]);
+    }
+
+    int max = array[0];
+    int max_index = 0;
+    for (int i = 1; i < n; i++) {
+        if (array[i] > max) {
+            max = array[i];
+            max_index = i;
+        }
+    }
+
+    int count = 0;
+    for (int i = 0; i < max_index; i++) {
+        if (array[i] > 0) {
+            count++;
+        }
+    }
+
+    printf("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: %d\n", count);
 
     return 0;
 }
