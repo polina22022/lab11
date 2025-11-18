@@ -22,59 +22,62 @@ https://github.com/polina22022/lab12/blob/master/lab12.drawio
 
 
 ## 2. Реализация программы
+
+#define _CRT_SECURE_NO_DEPRECATE
+
 #include <stdio.h>
 
 #include <locale.h>
 
-int main() 
+#define SIZE 1000
 
-{
+int main() {
 
+    int n;
+    
     setlocale(LC_ALL, "RUS");
     
-    char c1, c2;
+    printf("Введите размер массива: ");
     
-    short s1, s2;
+    scanf("%d", &n);
+
+    int array[SIZE];
+
+    printf("Введите %d элементов массива:\n", n);
     
-    unsigned short us1, us2;
+    for (int i = 0; i < n; i++) {
     
-    int i1, i2;
+        scanf("%d", &array[i]);
+        
+    }
+
+    int max = array[0];
     
-    unsigned char uc1, uc2;
+    int max_index = 0;
     
-    wchar_t wc1, wc2;
+    for (int i = 1; i < n; i++) {
     
-    long long ll1, ll2;
+        if (array[i] > max) {
+        
+            max = array[i];
+            
+            max_index = i;
+            
+        }
+        
+    }
     
-    size_t st1, st2;
+    int count = 0;
     
-    float f1, f2;
+    for (int i = 0; i < max_index; i++) {
     
-    double d1, d2;
-    
-    signed int si1, si2;
-    
-    printf("char: %ld байт\n", (char*)(&c2) - (char*)(&c1));
-    
-    printf("short int: %ld байт\n", (short*)(&s2) - (short*)(&s1));
-    
-    printf("unsigned short int: %ld байт\n", (unsigned short*)(&us2) - (unsigned short*)(&us1));
-    
-    printf("int: %ld байт\n", (int*)(&i2) - (int*)(&i1));
-    
-    printf("unsigned char: %ld байт\n", (unsigned char*)(&uc2) - (unsigned char*)(&uc1));
-    
-    printf("wchar_t: %ld байт\n", (wchar_t*)(&wc2) - (wchar_t*)(&wc1));
-    
-    printf("long long int: %ld байт\n", (long long*)(&ll2) - (long long*)(&ll1));
-    
-    printf("size_t: %ld байт\n", (size_t*)(&st2) - (size_t*)(&st1));
-    
-    printf("float: %ld байт\n", (float*)(&f2) - (float*)(&f1));
-    
-    printf("double: %ld байт\n", (double*)(&d2) - (double*)(&d1));
-    
-    printf("signed int: %ld байт\n", (signed int*)(&si2) - (signed int*)(&si1));
+        if (array[i] > 0) {
+        
+            count++;
+        }
+    }
+
+    printf("Количество положительных элементов, расположенных до максимального: %d\n", count);
 
     return 0;
 }
